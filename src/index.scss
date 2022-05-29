@@ -1,6 +1,11 @@
-@import "./style/colors/colors";
+@import "./style/helpers/mixins";
+@import "./style/variables/colors";
+@import "./style/variables/shadows";
+
 @import  "./style/global-rules/global-rules";
+@import "./style/layout/container";
+@import "./style/helpers/classes";
+
+/******* Components ********/
 @import "./style/components/start";
 @import "./style/components/board";
-
-  

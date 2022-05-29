@@ -4,8 +4,10 @@ import Start from "./components/start/Start";
 function App() {
   return (
     <div className="App">
-      <Start />
-      {/* <Board /> */}
+      <div className="container">
+        <Start />
+        {/* <Board /> */}
+      </div>
     </div>
   );
 }

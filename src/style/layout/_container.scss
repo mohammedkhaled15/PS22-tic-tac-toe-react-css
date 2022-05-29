@@ -1,0 +1,12 @@
+@import "./../helpers/mixins";
+
+.App{
+    min-height: 100vh;
+    @include flexCentering();
+}
+.container{
+    max-width:450px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 2rem 1rem;
+}

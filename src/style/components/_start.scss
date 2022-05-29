@@ -1,0 +1,36 @@
+.start{
+    @include flexCentering();
+    flex-direction: column;
+    gap: 25px;
+    &__header{
+        @include flexCentering();
+        gap: 10px;
+    }
+    &__players{
+        background-color: $bg-light;
+        @include flexCentering();
+        justify-content: initial;
+        border-radius: 15px;
+        padding: 10px;
+        box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+        &--active{
+            background-color: $gray;
+            box-shadow: 0 0 8px rgba(255, 255, 255,0.2);
+            svg{
+                fill: $bg-dark;
+            }
+        }
+        span{
+            @include flexCentering();
+            width: 50%;
+            padding: 15px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+    &__btns{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

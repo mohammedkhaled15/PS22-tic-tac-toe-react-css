@@ -1,0 +1,33 @@
+// media quiries
+// use ==> @include breakpoints(small or medium or large or xlarge){your properties}
+@mixin breakpoints($screenSize) {
+    @if $screenSize == mobile{
+      @media (max-width:575px){
+        @content;
+      }
+    }
+    @if $screenSize == small {
+      @media (min-width: 576px) {
+        @content;
+      }
+    } @else if $screenSize == medium {
+      @media (min-width: 768px){
+        @content;
+      }
+    } @else if $screenSize == large {
+      @media (min-width: 992px){
+        @content;
+      }
+    } @else if $screenSize == xlarge {
+      @media (min-width: 1200px) {
+        @content;
+      }
+    }
+  }
+
+  /**********************************/
+  @mixin flexCentering(){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

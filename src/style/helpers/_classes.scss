@@ -1,0 +1,111 @@
+/***************** Components *******************/
+
+/********* Card ***************/
+.card{
+    background-color: $bg-light;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/********* Button ***************/
+
+.btn{
+    background-color: $gray;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    color: $bg-light;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 var(--btn-shadow) 0 $gray-dark;
+    transition:all 0.2s;
+    margin-bottom: 6px;
+}
+.btn:hover{
+    --btn-shadow: 8px;
+    transform: translateY(-6px);
+}
+.btn:active{
+    --btn-shadow: 4px;
+    transform: translateY(2px);
+}
+
+/********* Icon ***************/
+
+.icon{
+    display: inline-block;
+}
+.icon svg{
+    fill: $gray;
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+}
+
+/***************** Text Colors ****************/
+.text-light{
+    color: $gray;
+}
+.text-green{
+    color: $green;
+}
+.text-yellow{
+    color: $yellow;
+}
+
+/***************** Text sizes ****************/
+.text-lg{
+    font-size: 1.25rem;
+}
+.text-xl{
+    font-size: 1.5rem;
+}
+.text-2xl   {
+    font-size: 1.725rem;
+}
+
+/***************** Buttons Colors ****************/
+.btn-yellow{
+    background: $yellow;
+    box-shadow: 0 var(--btn-shadow) 0 $yellow-dark;
+}
+.btn-green{
+    background: $green;
+    box-shadow: 0 var(--btn-shadow) 0 $green-dark;
+}
+/***************** Buttons sizes ****************/
+.btn-sm{
+    --btn-shadow:4px
+}
+.btn-sm:hover{
+    --btn-shadow:6px
+}
+.btn-sm:active{
+    --btn-shadow:3px
+}
+/***************** Icons sizes ****************/
+.icon-sm svg{
+    height: 30px;
+    width: 30px;
+}
+.icon-lg svg{
+    height: 65px;
+    width: 65px;
+}
+/***************** Icons colors ****************/
+.icon-dark svg{
+    fill: $bg-light;
+}
+.icon-yellow svg{
+    fill: $yellow;
+}
+.icon-green svg{
+    fill: $green;
+}
