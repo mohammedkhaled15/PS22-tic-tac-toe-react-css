@@ -1,0 +1,28 @@
+.board{
+    &__header{
+        @include flexCentering();
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+    &__turn{
+        border-radius: 5px;
+        background-color: $bg-light;
+        padding: 8px 12px;
+        @include flexCentering();
+        gap: 4px;
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    &__restart{
+        padding: 10px 20px;
+        svg{
+            width: 25px;
+            height: 25px;
+            transform-origin: center;
+            @include flexCentering();
+            transition: all 0.3s;
+        }
+        &:active svg{
+            transform: rotate(180deg);
+        }
+    }
+}

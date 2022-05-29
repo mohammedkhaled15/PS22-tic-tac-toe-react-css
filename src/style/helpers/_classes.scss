@@ -92,8 +92,8 @@
 }
 /***************** Icons sizes ****************/
 .icon-sm svg{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
 }
 .icon-lg svg{
     height: 65px;
@@ -102,6 +102,9 @@
 /***************** Icons colors ****************/
 .icon-dark svg{
     fill: $bg-light;
+}
+.icon-light svg{
+    fill:  $gray;
 }
 .icon-yellow svg{
     fill: $yellow;

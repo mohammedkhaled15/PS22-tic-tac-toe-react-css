@@ -15,7 +15,7 @@ function Start() {
           <Xicon />
         </span>
         <span >
-          <Oicon color="yellow" />
+          <Oicon />
         </span>
       </div>
       <p className="text-light">remember: x goes first</p>
