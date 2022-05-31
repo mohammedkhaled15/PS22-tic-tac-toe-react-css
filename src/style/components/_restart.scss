@@ -1,0 +1,13 @@
+.restart{
+    text-align: center;
+    &__title{
+        font-size: 2rem;
+        margin: 30px 0 ;
+        @include flexCentering();
+        gap: 6px;
+    }
+    &__btns{
+        @include flexCentering();
+        gap: 15px;
+    }
+}

@@ -1,0 +1,13 @@
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    @include flexCentering();
+    &__content{
+        width: 100%;
+        background-color: $bg-light  
+    }
+}

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GameContext } from "../../context/GameContext";
 import Oicon from "../icons/Oicon";
 import Xicon from "../icons/Xicon";
+import BoardCard from "./BoardCard";
 
 function Board() {
+  const { squares, xnext, score, winner, winnerLines, handleReset } = useContext(GameContext)
   return (
     <div className="board">
       <div className="board__header">
@@ -11,10 +14,10 @@ function Board() {
           <Oicon />
         </div>
         <div className="board__turn">
-          <Xicon color="light" size="sm" /> turn
+          {xnext ? <Oicon color="light" size="sm" /> : <Xicon color="light" size="sm" />}turn
         </div>
         <div>
-          <button className="btn btn-sm board__restart">
+          <button className="btn btn-sm board__restart" onClick={handleReset}>
             <svg
               fill="none"
             >
@@ -26,8 +29,28 @@ function Board() {
           </button>
         </div>
       </div>
-      <div className="board__body"></div>
-      <div className="board__footer"></div>
+      <div className="board__body">
+        {squares.map((square, index) =>
+          <BoardCard
+            key={index}
+            index={index}
+            user={square}
+            active={winner && winnerLines && winnerLines.includes(index)} />)}
+      </div>
+      <div className="board__footer">
+        <div className="card bg-green text-dark" >
+          <p>x (you)</p>
+          <strong className="text-2xl">{score.x}</strong>
+        </div>
+        <div className="card bg-gray text-dark">
+          <p>ties</p>
+          <strong className="text-2xl">{score.ties}</strong>
+        </div>
+        <div className="card bg-yellow text-dark">
+          <p>o (cpu)</p>
+          <strong className="text-2xl">{score.o}</strong>
+        </div>
+      </div>
     </div>
   )
 }

@@ -9,7 +9,7 @@
         background-color: $bg-light;
         padding: 8px 12px;
         @include flexCentering();
-        gap: 4px;
+        gap: 10px;
         box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     }
     &__restart{
@@ -23,6 +23,26 @@
         }
         &:active svg{
             transform: rotate(180deg);
+        }
+    }
+    &__body{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px 20px;
+        .card{
+            height: 120px;
+            @include flexCentering();
+            padding-inline: 10px;
+            cursor: pointer;
+        }
+    }
+    &__footer{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        .card{
+            gap: 10px;
         }
     }
 }
