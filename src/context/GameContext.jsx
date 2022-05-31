@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import getWinner from "../gameLogic/CalcSquares";
+import { calcBestMove, getWinner } from "../gameLogic/CalcSquares";
 import { ModalContext } from "./Modalcontext";
 
 const GameContext = createContext()
 
 const GameState = (props) => {
 
-    const [screen, setScreen] = useState("game") // start || game 
+    const [screen, setScreen] = useState("start") // start || game 
 
     const [activeUser, setActiveUser] = useState("x") // x || o
     const [playMode, setPlayMode] = useState("user") // user || cpu
@@ -66,6 +66,12 @@ const GameState = (props) => {
 
     useEffect(() => { // making check for no winnner case away from click to prevent error from cpu click
         checkNoWinner()
+
+        // section about cpu move
+        const currentUser = xnext ? "o" : "x"
+        if (playMode === "cpu" && currentUser !== activeUser && !winner) { // check the case which cpu will play    
+            cpuNextMove(squares) // calling function which make cpu play
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [xnext, winner, screen])
 
@@ -101,7 +107,6 @@ const GameState = (props) => {
     }
 
     const checkNoWinner = () => { // in case of ties between two players
-
         const remainedMoves = squares.filter(sq => sq === "") // check for empty squares
 
         if (remainedMoves.length === 0 && winner !== "x" && winner !== "o") {
@@ -114,6 +119,24 @@ const GameState = (props) => {
             }
             showModal()
         }
+    }
+
+    const handleCancel = () => {
+        hideModal()
+    }
+
+    const handleRestart = () => {
+        handleQuite()
+    }
+
+    const cpuNextMove = (squares) => {
+        const bestmove = calcBestMove(squares, activeUser === "x" ? "o" : "x")// get the index of next move for cpu
+        //steps for filling the empty cell by the cpu
+        let squaresCopy = [...squares]
+        squaresCopy[bestmove] = activeUser === "x" ? "o" : "x"
+        setSquares(squaresCopy)
+        setXnext(!xnext)
+        checkWinner(squaresCopy)
     }
 
     return (
@@ -129,7 +152,9 @@ const GameState = (props) => {
                 handleNextRound,
                 handleQuite,
                 handleReset,
-                score, winner
+                score, winner,
+                handleCancel,
+                handleRestart
             }}>
             {props.children}
         </GameContext.Provider>

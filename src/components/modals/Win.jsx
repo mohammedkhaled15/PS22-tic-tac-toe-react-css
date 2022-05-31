@@ -9,7 +9,9 @@ const Win = () => {
         <div className='score'>
             {winner && winner !== "noWinner" ? (
                 <>
-                    <p>{playMode === "user" ? "You Win!" : playMode === "cpu " && activeUser !== winner ? "CPU Wins!" : ""}</p>
+                    <p className='text-lg text-light'>
+                        {playMode === "cpu" && activeUser === winner ? "You Win!" : ""}
+                        {playMode === "cpu" && activeUser !== winner ? "You Lose!" : ""}</p>
                     <h3 className='score__title'>
                         {winner === "x" ? <Xicon /> : <Oicon />} Take the Round
                     </h3>

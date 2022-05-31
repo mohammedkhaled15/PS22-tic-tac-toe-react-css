@@ -5,7 +5,7 @@ import Xicon from "../icons/Xicon";
 import BoardCard from "./BoardCard";
 
 function Board() {
-  const { squares, xnext, score, winner, winnerLines, handleReset } = useContext(GameContext)
+  const { squares, xnext, score, winner, winnerLines, handleReset, activeUser, playMode } = useContext(GameContext)
   return (
     <div className="board">
       <div className="board__header">
@@ -39,7 +39,7 @@ function Board() {
       </div>
       <div className="board__footer">
         <div className="card bg-green text-dark" >
-          <p>x (you)</p>
+          <p>x {playMode !== "cpu" ? "" : activeUser !== "x" ? "(Cpu)" : "(You)"}</p>
           <strong className="text-2xl">{score.x}</strong>
         </div>
         <div className="card bg-gray text-dark">
@@ -47,7 +47,7 @@ function Board() {
           <strong className="text-2xl">{score.ties}</strong>
         </div>
         <div className="card bg-yellow text-dark">
-          <p>o (cpu)</p>
+          <p>o {playMode !== "cpu" ? "" : activeUser !== "o" ? "(Cpu)" : "(You)"}</p>
           <strong className="text-2xl">{score.o}</strong>
         </div>
       </div>
