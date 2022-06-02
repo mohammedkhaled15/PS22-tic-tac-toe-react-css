@@ -3,6 +3,7 @@ import Xicon from '../icons/Xicon'
 import Oicon from '../icons/Oicon'
 import { GameContext } from '../../context/GameContext'
 
+
 function BoardCard({ user = "nouser", active, index }) {
 
     const { handleSquareClick } = useContext(GameContext)
@@ -12,10 +13,11 @@ function BoardCard({ user = "nouser", active, index }) {
             className={`card ${active && user === "x" && "shadow-green"} ${active && user === "o" && "shadow-yellow"} ${!active ? "shadow-gray" : "active"}`}
             onClick={() => handleSquareClick(index)}>
 
-            {user === "x" && <Xicon color={active && "dark"} size="lg" />}
-            {user === "o" && <Oicon color={active && "dark"} size="lg" />}
+            {user === "o" && <Oicon key={index} color={active && "dark"} size="lg" anim={true} />}
+            {user === "x" && <Xicon key={index} color={active && "dark"} size="lg" anim={true} />}
 
-        </div>
+
+        </div >
     )
 }
 

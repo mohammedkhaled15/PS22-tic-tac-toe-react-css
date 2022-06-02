@@ -70,7 +70,9 @@ const GameState = (props) => {
         // section about cpu move
         const currentUser = xnext ? "o" : "x"
         if (playMode === "cpu" && currentUser !== activeUser && !winner) { // check the case which cpu will play    
-            cpuNextMove(squares) // calling function which make cpu play
+            setTimeout(() => { // making some delay before cpu play
+                cpuNextMove(squares) // calling function which make cpu play
+            }, 1000)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [xnext, winner, screen])

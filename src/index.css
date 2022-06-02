@@ -227,6 +227,12 @@ body {
           box-shadow: 0 8px 0 #cd8d16;
 }
 
+/********************* animation ********************/
+.anim {
+  -webkit-animation: entrance 1s;
+          animation: entrance 1s;
+}
+
 /******* Components ********/
 .start {
   display: -webkit-box;
@@ -410,6 +416,32 @@ body {
 
 .board__footer .card {
   gap: 10px;
+}
+
+@-webkit-keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .score {
